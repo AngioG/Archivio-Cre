@@ -1,0 +1,85 @@
+{
+  "$id": "1",
+  "EleLuogo": [
+    {
+      "$id": "2",
+      "Code": "LUO09APR22000",
+      "Nome": "Campetto Oratorio",
+      "Aperto": "Aperto",
+      "UltimaModifica": "2022-05-14T00:00:00+02:00"
+    }
+  ],
+  "EleTipo": [
+    {
+      "$id": "3",
+      "Code": "TIP09APR22000",
+      "Nome": "Atelier",
+      "Descrizione": "",
+      "UltimaModifica": "2022-05-14T00:00:00+02:00"
+    }
+  ],
+  "EleAttivit": [
+    {
+      "$id": "4",
+      "Code": "ATT06MAG22000",
+      "Nome": "sdfkjsbdk",
+      "Descrizione": "sdfgsdfffgsd",
+      "Età": [],
+      "Luogo": {
+        "$ref": "2"
+      },
+      "Tipo": {
+        "$ref": "3"
+      },
+      "Materiale": [
+        {
+          "$id": "5",
+          "Item1": 3,
+          "Item2": "sdfgsdfgsd"
+        }
+      ],
+      "UltimaModifica": "2022-05-14T00:00:00+02:00"
+    },
+    {
+      "$id": "6",
+      "Code": "ATT06MAG22001",
+      "Nome": "mvnvn",
+      "Descrizione": "bnmbnmvbm",
+      "Età": [
+        "Terza Elementare",
+        "Quarta Elementare",
+        "Terza Media"
+      ],
+      "Luogo": {
+        "$ref": "2"
+      },
+      "Tipo": {
+        "$ref": "3"
+      },
+      "Materiale": [
+        {
+          "$id": "7",
+          "Item1": 3,
+          "Item2": "vnmn"
+        },
+        {
+          "$id": "8",
+          "Item1": 1,
+          "Item2": "vbnmvbnmvb"
+        }
+      ],
+      "UltimaModifica": "2022-05-14T00:00:00+02:00"
+    }
+  ],
+  "EleLogin": [
+    {
+      "$id": "9",
+      "Nome": "admin",
+      "Password": "gR/+MkGhaiE=",
+      "CanInsert": true,
+      "CanUpdate": true,
+      "CanDelete": true
+    }
+  ],
+  "Open": false
+}
