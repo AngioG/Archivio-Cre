@@ -35,7 +35,7 @@ namespace Archivio_CRE
                 cmb_filter_luogo.Items.Add(l);
                 cmb_edit_luogo.Items.Add(l);
 
-                list_luoghi.Items.Add(new ListViewItem(new string[] { l.Code, l.Nome, l.Aperto, l.UltimaModifica.ToString("dd/MM/yyyy") }));
+                list_luoghi.Items.Add(new ListViewItem(new string[] { l.Code, l.Nome, l.Aperto}));
             }
             foreach (var t in Program.GlobalConfig.EleTipo)
             {
@@ -43,7 +43,7 @@ namespace Archivio_CRE
                 cmb_filter_tipo.Items.Add(t);
                 cmb_edit_tipo.Items.Add(t);
 
-                list_attività.Items.Add(new ListViewItem(new string[] { t.Code, t.Nome, t.UltimaModifica.ToString("dd/MM/yyyy") }));
+                list_attività.Items.Add(new ListViewItem(new string[] { t.Code, t.Nome}));
             }
 
             Thread nuovo = new Thread(CheckIfStop);
@@ -71,13 +71,13 @@ namespace Archivio_CRE
             {
                 list_luoghi.Items.Clear();
                 foreach (var l in Program.GlobalConfig.EleLuogo)
-                    list_luoghi.Items.Add(new ListViewItem(new string[] { l.Code, l.Nome, l.Aperto, l.UltimaModifica.ToString("dd/MM/yyyy") }));
+                    list_luoghi.Items.Add(new ListViewItem(new string[] { l.Code, l.Nome, l.Aperto}));
                 }
             if (tabControl1.SelectedIndex == 4)
             {
                 list_attività.Items.Clear();
                 foreach (var t in Program.GlobalConfig.EleTipo)
-                    list_attività.Items.Add(new ListViewItem(new string[] { t.Code, t.Nome, t.UltimaModifica.ToString("dd/MM/yyyy") }));
+                    list_attività.Items.Add(new ListViewItem(new string[] { t.Code, t.Nome}));
             }
 
 
@@ -282,8 +282,7 @@ namespace Archivio_CRE
                 a.Nome,
                 a.Luogo,
                 a.Tipo,
-                a.Età,
-                a.UltimaModifica
+                a.Età
             });
 
             if (cmb_filter_tipo.Text != "Tutti")
@@ -337,8 +336,7 @@ namespace Archivio_CRE
                 list_vis.Items.Add(new ListViewItem(new string[] {a.Codice,
                 a.Nome,
                 a.Tipo.ToString(),
-                a.Luogo.ToString(),
-                a.UltimaModifica.ToString("dd/MM/yyyy")}));
+                a.Luogo.ToString()}));
             }
 
             Program.timeLeft = 600000;
@@ -395,6 +393,7 @@ namespace Archivio_CRE
                 list_edit_mat.Items.Add(new ListViewItem(new string[] { o.Item1.ToString(), o.Item2 }));
 
             pan_edit.Enabled = true;
+            pan_edit1.Enabled = true;
         }
         private void list_edit_mat_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -482,6 +481,9 @@ namespace Archivio_CRE
             Program.GlobalConfig.EleAttivit.RemoveAll(a => a.Code == txt_edit_cod.Text);
 
             Clear_edit(sender, e);
+            list_src.Items.Clear();
+            foreach (var a in Program.GlobalConfig.EleAttivit)
+                list_src.Items.Add(new ListViewItem(new string[] { a.Code, a.Nome }));
         }
         private void btn_edit_mat_Click(object sender, EventArgs e)
         {
@@ -499,6 +501,42 @@ namespace Archivio_CRE
 
             list_edit_mat.Items.Add(new ListViewItem(new string[] { "1", txt_edit_mat.Text }));
         }
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            var selected = Program.GlobalConfig.EleAttivit.Where(a => a.Code == txt_edit_cod.Text).FirstOrDefault();
+
+            if (selected == null) return;
+
+            List<string> eleetà = new List<string>();
+            foreach (ListViewItem i in list_edit_classi.Items)
+                eleetà.Add(i.Text);
+
+            List<(int, string)> elemateriali = new List<(int, string)>();
+            foreach (ListViewItem i in list_edit_mat.Items)
+            {
+                (int, string) a = (int.Parse(i.SubItems[0].Text), i.SubItems[1].Text);
+                elemateriali.Add(a);
+            }
+
+            try
+            {
+                selected.Nome = txt_edit_nom.Text;
+                selected.Descrizione = txt_edit_des.Text;
+                selected.Età = eleetà;
+                selected.Materiale = elemateriali;
+                selected.Luogo = Program.GlobalConfig.EleLuogo.Where(l => l.Nome == cmb_edit_luogo.Text).FirstOrDefault();
+                selected.Tipo = Program.GlobalConfig.EleTipo.Where(t => t.Nome == cmb_edit_tipo.Text).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            foreach (var a in Program.GlobalConfig.EleAttivit)
+                list_src.Items.Add(new ListViewItem(new string[] { a.Code, a.Nome }));
+
+            Program.timeLeft = 600000;
+        }
         private void Clear_edit(object sender, EventArgs e)
         {
             txt_edit_cod.Text = "";
@@ -510,6 +548,7 @@ namespace Archivio_CRE
             list_edit_mat.Items.Clear();
 
             pan_edit.Enabled = false;
+            pan_edit1.Enabled = false;
         }
         #endregion
         #region Tab 4 Luoghi
@@ -533,7 +572,7 @@ namespace Archivio_CRE
             cmb_filter_luogo.Items.Add(nuovo);
             cmb_edit_luogo.Items.Add(nuovo);
 
-            list_luoghi.Items.Add(new ListViewItem(new string[] { nuovo.Code, nuovo.Nome, nuovo.Aperto, nuovo.UltimaModifica.ToString("dd/MM/yyyy") }));
+            list_luoghi.Items.Add(new ListViewItem(new string[] { nuovo.Code, nuovo.Nome, nuovo.Aperto}));
 
             Program.timeLeft = 600000;
         }
@@ -593,7 +632,7 @@ namespace Archivio_CRE
             cmb_filter_tipo.Items.Add(nuovo);
             cmb_edit_tipo.Items.Add(nuovo);
 
-            list_attività.Items.Add(new ListViewItem(new string[] { nuovo.Code, nuovo.Nome, nuovo.UltimaModifica.ToString("dd/MM/yyyy") }));
+            list_attività.Items.Add(new ListViewItem(new string[] { nuovo.Code, nuovo.Nome }));
 
             Program.timeLeft = 600000;
         }
@@ -651,39 +690,6 @@ namespace Archivio_CRE
             txt_att_eddes.Text = "Aperto";
 
             pan_att_edit.Enabled = false;
-
-            Program.timeLeft = 600000;
-        }
-        private void btn_edit_Click(object sender, EventArgs e)
-        {
-            var seleced = Program.GlobalConfig.EleAttivit.Where(a => a.Code == txt_edit_cod.Text).FirstOrDefault();
-
-            if (seleced == null) return;
-
-            List<string> eleetà = new List<string>();
-            foreach (ListViewItem i in list_edit_classi.Items)
-                eleetà.Add(i.Text);
-
-            List<(int, string)> elemateriali = new List<(int, string)>();
-            foreach (ListViewItem i in list_edit_mat.Items)
-            {
-                (int, string) a = (int.Parse(i.SubItems[0].Text), i.SubItems[1].Text);
-                elemateriali.Add(a);
-            }
-
-            try
-            {
-                seleced.Nome = txt_att_ednom.Text;
-                seleced.Descrizione = txt_edit_des.Text;
-                seleced.Età = eleetà;
-                seleced.Materiale = elemateriali;
-                seleced.Luogo = cmb_edit_luogo.SelectedItem as Luogo;
-                seleced.Tipo = cmb_edit_tipo.SelectedItem as Tipo;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
             Program.timeLeft = 600000;
         }

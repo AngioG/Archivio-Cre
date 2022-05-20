@@ -25,7 +25,6 @@ namespace Archivio_CRE
             frm_login.Aborted = true;
         }
 
-
         private void Visualizza()
         {
             list_vis.Items.Clear();
@@ -33,21 +32,20 @@ namespace Archivio_CRE
                 list_vis.Items.Add(new ListViewItem(new string[] {a.Code,
                 a.Nome,
                 a.Tipo.ToString(),
-                a.Luogo.ToString(),
-                a.UltimaModifica.ToString("dd/MM/yyyy")}));
+                a.Luogo.ToString()}));
             list_luoghi.Items.Clear();
             foreach (var l in Program.GlobalConfig.EleLuogo)
             {
                 cmb_filter_luogo.Items.Add(l);
 
-                list_luoghi.Items.Add(new ListViewItem(new string[] { l.Code, l.Nome, l.Aperto, l.UltimaModifica.ToString("dd/MM/yyyy") }));
+                list_luoghi.Items.Add(new ListViewItem(new string[] { l.Code, l.Nome, l.Aperto}));
             }
             list_attività.Items.Clear();
             foreach (var t in Program.GlobalConfig.EleTipo)
             {
                 cmb_filter_tipo.Items.Add(t);
 
-                list_attività.Items.Add(new ListViewItem(new string[] { t.Code, t.Nome, t.UltimaModifica.ToString("dd/MM/yyyy") }));
+                list_attività.Items.Add(new ListViewItem(new string[] { t.Code, t.Nome}));
             }
         }
 
@@ -74,7 +72,7 @@ namespace Archivio_CRE
             list_luoghi.Items.Clear();
             foreach (var a in eleCercati.ToList())
             {
-                list_luoghi.Items.Add(new ListViewItem(new string[] { a.Code, a.Nome, a.Aperto, a.UltimaModifica.ToString("dd/MM/yyy") }));
+                list_luoghi.Items.Add(new ListViewItem(new string[] { a.Code, a.Nome, a.Aperto}));
                 Application.DoEvents();
             }
         }
@@ -97,11 +95,11 @@ namespace Archivio_CRE
         }
         private void CercaTipo()
         {
-            var eleCercati = Program.GlobalConfig.EleTipo.Where(a => a.Nome.ToLower().Contains(txt_src_luogo.Text.ToLower()) || a.Code.ToLower().Contains(txt_src_luogo.Text.ToLower()));
+            var eleCercati = Program.GlobalConfig.EleTipo.Where(a => a.Nome.ToLower().Contains(txt_src_tipo.Text.ToLower()) || a.Code.ToLower().Contains(txt_src_tipo.Text.ToLower()));
             list_attività.Items.Clear();
             foreach (var a in eleCercati.ToList())
             {
-                list_attività.Items.Add(new ListViewItem(new string[] { a.Code, a.Nome, a.UltimaModifica.ToString("dd/MM/yyy") }));
+                list_attività.Items.Add(new ListViewItem(new string[] { a.Code, a.Nome}));
                 Application.DoEvents();
             }
         }
@@ -140,11 +138,6 @@ namespace Archivio_CRE
                 MessageBox.Show("Non hai i permessi per modificare l'archivio", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (Program.GlobalConfig.Open)
-            {
-                MessageBox.Show("c'è già qualcuno che sta modificando l'archivio, aspetta il tuo turno!", "Attenzione", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             this.Close();
         }
 
@@ -164,7 +157,8 @@ namespace Archivio_CRE
             var cod = list_vis.SelectedItems[0].SubItems[0].Text;
             var att = Program.GlobalConfig.EleAttivit.Where(a => a.Code == cod).FirstOrDefault();
             if (att == null) return;
-            (new frm_vis_att(att)).Show();
+            //this.TopLevel = false;
+            (new frm_vis_att(att) { Owner = this }).Show();
         }
 
         private void list_luoghi_SelectedIndexChanged(object sender, EventArgs e)
@@ -175,7 +169,8 @@ namespace Archivio_CRE
             var cod = list_luoghi.SelectedItems[0].SubItems[0].Text;
             var luo = Program.GlobalConfig.EleLuogo.Where(l => l.Code == cod).FirstOrDefault();
             if (luo == null) return;
-            (new frm_vis_luo(luo)).Show();
+            //this.TopLevel = false;
+            (new frm_vis_luo(luo) { Owner = this }).Show();
         }
 
         private void list_attività_SelectedIndexChanged(object sender, EventArgs e)
@@ -186,7 +181,42 @@ namespace Archivio_CRE
             var cod = list_attività.SelectedItems[0].SubItems[0].Text;
             var tipo = Program.GlobalConfig.EleTipo.Where(t => t.Code == cod).FirstOrDefault();
             if (tipo == null) return;
-            (new frm_vis_tipo(tipo)).Show();
+            //this.TopLevel = false;
+            (new frm_vis_tipo(tipo) { Owner = this }).Show();
+        }
+
+        private void txt_src_TextChanged(object sender, EventArgs e)
+        {
+                Thread nuovo = new Thread((obj) => Cerca());
+                nuovo.Name = "NoPermessi";
+                Program.ActiveThreads.RemoveAll(t =>
+                {
+                    if (t.Name == "NoPermessi")
+                    {
+                        t.Abort();
+                        return true;
+                    }
+                    return false;
+                });
+                Program.ActiveThreads.Add(nuovo);
+                nuovo.Start();
+        }
+
+        private void Cerca()
+        {
+            var eleCercati = Program.GlobalConfig.EleAttivit.Where(a => a.Nome.ToLower().Contains(txt_src.Text.ToLower()) || a.Luogo.Nome.ToLower().Contains(txt_src.Text.ToLower())
+                                                      || a.Tipo.Nome.ToLower().Contains(txt_src.Text.ToLower()) || a.Code.ToLower().Contains(txt_src.Text.ToLower()));
+
+            var eleFiltrato = eleCercati.Where(a => cmb_filter_luogo.SelectedIndex > 1 ? a.Luogo == cmb_filter_luogo.SelectedItem as Luogo : true || cmb_filter_tipo.SelectedIndex > 1 ? a.Tipo == cmb_filter_tipo.SelectedItem as Tipo : true ||
+                                                cmb_filter_età.SelectedIndex < 8 ? a.Età.Contains(cmb_filter_età.Text) : true);
+
+
+            list_vis.Items.Clear();
+            foreach (var a in eleCercati.ToList())
+            {
+                list_vis.Items.Add(new ListViewItem(new string[] { a.Code, a.Nome, a.Tipo.ToString(), a.Luogo.ToString() }));
+                Application.DoEvents();
+            }
         }
     }
 }

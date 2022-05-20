@@ -12,11 +12,11 @@ namespace Archivio_CRE
 {
     public partial class frm_login : Form
     {
-        public static bool Aborted = true;
-        private bool stopped = false;
+        public static bool Aborted;
         public frm_login()
         {
             InitializeComponent();
+
         }
 
         private void btn_log_Click(object sender, EventArgs e)
@@ -24,7 +24,7 @@ namespace Archivio_CRE
             if(Program.GlobalConfig.ActiveLogin != null && String.IsNullOrWhiteSpace(txt_user.Text))
             {
                 if (Program.GlobalConfig.Open)
-                    MessageBox.Show("Qualcuno sta già modificando l'archivio, il programma si chiuderà", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Qualcuno sta già modificando l'archivio", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Aborted = false;
                 this.Close();
             }
@@ -47,7 +47,7 @@ namespace Archivio_CRE
             }
 
             if (Program.GlobalConfig.Open)
-                MessageBox.Show("Qualcuno sta già modificando l'archivio, il programma si chiuderà", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Qualcuno sta già modificando l'archivio", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             Program.GlobalConfig.ActiveLogin = account;
             Aborted = false;
             this.Close();
@@ -59,9 +59,5 @@ namespace Archivio_CRE
                 btn_log.PerformClick();
         }
 
-        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            stopped = true;
-        }
     }
 }

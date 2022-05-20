@@ -15,6 +15,7 @@ namespace Archivio_CRE
         public frm_vis_att()
         {
             InitializeComponent();
+            this.TopMost = true;
         }
 
         public frm_vis_att(Attività att)

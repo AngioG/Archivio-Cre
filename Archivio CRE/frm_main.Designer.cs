@@ -78,7 +78,6 @@ namespace Archivio_CRE
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pan_età = new System.Windows.Forms.Panel();
             this.cmb_filter_età = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -145,7 +144,6 @@ namespace Archivio_CRE
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pan_luo_ins = new System.Windows.Forms.Panel();
             this.btn_luogo_ins = new System.Windows.Forms.Button();
             this.label30 = new System.Windows.Forms.Label();
@@ -168,7 +166,6 @@ namespace Archivio_CRE
             this.list_attività = new System.Windows.Forms.ListView();
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2 = new System.Windows.Forms.Panel();
             this.txt_att_des = new System.Windows.Forms.RichTextBox();
             this.label41 = new System.Windows.Forms.Label();
@@ -230,7 +227,7 @@ namespace Archivio_CRE
             this.panel_buttons.Controls.Add(this.btn_goto_ins);
             this.panel_buttons.Location = new System.Drawing.Point(0, 95);
             this.panel_buttons.Name = "panel_buttons";
-            this.panel_buttons.Size = new System.Drawing.Size(1120, 50);
+            this.panel_buttons.Size = new System.Drawing.Size(1120, 32);
             this.panel_buttons.TabIndex = 1;
             // 
             // btn_close
@@ -239,7 +236,7 @@ namespace Archivio_CRE
             this.btn_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.btn_close.Location = new System.Drawing.Point(960, 0);
             this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(160, 50);
+            this.btn_close.Size = new System.Drawing.Size(160, 32);
             this.btn_close.TabIndex = 6;
             this.btn_close.Text = "CHIUDI";
             this.btn_close.UseVisualStyleBackColor = true;
@@ -251,7 +248,7 @@ namespace Archivio_CRE
             this.btn_logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.btn_logout.Location = new System.Drawing.Point(800, 0);
             this.btn_logout.Name = "btn_logout";
-            this.btn_logout.Size = new System.Drawing.Size(160, 50);
+            this.btn_logout.Size = new System.Drawing.Size(160, 32);
             this.btn_logout.TabIndex = 5;
             this.btn_logout.Text = "LOGOUT";
             this.btn_logout.UseVisualStyleBackColor = true;
@@ -263,7 +260,7 @@ namespace Archivio_CRE
             this.btn_goto_attività.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.btn_goto_attività.Location = new System.Drawing.Point(640, 0);
             this.btn_goto_attività.Name = "btn_goto_attività";
-            this.btn_goto_attività.Size = new System.Drawing.Size(160, 50);
+            this.btn_goto_attività.Size = new System.Drawing.Size(160, 32);
             this.btn_goto_attività.TabIndex = 4;
             this.btn_goto_attività.Text = "ATTIVITÀ";
             this.btn_goto_attività.UseVisualStyleBackColor = true;
@@ -275,7 +272,7 @@ namespace Archivio_CRE
             this.btn_goto_luoghi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.btn_goto_luoghi.Location = new System.Drawing.Point(480, 0);
             this.btn_goto_luoghi.Name = "btn_goto_luoghi";
-            this.btn_goto_luoghi.Size = new System.Drawing.Size(160, 50);
+            this.btn_goto_luoghi.Size = new System.Drawing.Size(160, 32);
             this.btn_goto_luoghi.TabIndex = 3;
             this.btn_goto_luoghi.Text = "LUOGHI";
             this.btn_goto_luoghi.UseVisualStyleBackColor = true;
@@ -287,7 +284,7 @@ namespace Archivio_CRE
             this.btn_goto_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.btn_goto_edit.Location = new System.Drawing.Point(320, 0);
             this.btn_goto_edit.Name = "btn_goto_edit";
-            this.btn_goto_edit.Size = new System.Drawing.Size(160, 50);
+            this.btn_goto_edit.Size = new System.Drawing.Size(160, 32);
             this.btn_goto_edit.TabIndex = 2;
             this.btn_goto_edit.Text = "MODIFICA";
             this.btn_goto_edit.UseVisualStyleBackColor = true;
@@ -299,7 +296,7 @@ namespace Archivio_CRE
             this.bn_goto_vis.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.bn_goto_vis.Location = new System.Drawing.Point(160, 0);
             this.bn_goto_vis.Name = "bn_goto_vis";
-            this.bn_goto_vis.Size = new System.Drawing.Size(160, 50);
+            this.bn_goto_vis.Size = new System.Drawing.Size(160, 32);
             this.bn_goto_vis.TabIndex = 1;
             this.bn_goto_vis.Text = "ARCHIVIO";
             this.bn_goto_vis.UseVisualStyleBackColor = true;
@@ -311,7 +308,7 @@ namespace Archivio_CRE
             this.btn_goto_ins.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.btn_goto_ins.Location = new System.Drawing.Point(0, 0);
             this.btn_goto_ins.Name = "btn_goto_ins";
-            this.btn_goto_ins.Size = new System.Drawing.Size(160, 50);
+            this.btn_goto_ins.Size = new System.Drawing.Size(160, 32);
             this.btn_goto_ins.TabIndex = 0;
             this.btn_goto_ins.Text = "INSERIMENTO";
             this.btn_goto_ins.UseVisualStyleBackColor = true;
@@ -723,8 +720,7 @@ namespace Archivio_CRE
             this.columnHeader15,
             this.columnHeader17,
             this.columnHeader18,
-            this.columnHeader19,
-            this.columnHeader20});
+            this.columnHeader19});
             this.list_vis.FullRowSelect = true;
             this.list_vis.HideSelection = false;
             this.list_vis.Location = new System.Drawing.Point(280, 77);
@@ -737,27 +733,22 @@ namespace Archivio_CRE
             // columnHeader15
             // 
             this.columnHeader15.Text = "Codice";
-            this.columnHeader15.Width = 120;
+            this.columnHeader15.Width = 130;
             // 
             // columnHeader17
             // 
             this.columnHeader17.Text = "Nome";
-            this.columnHeader17.Width = 220;
+            this.columnHeader17.Width = 250;
             // 
             // columnHeader18
             // 
             this.columnHeader18.Text = "Tipo";
-            this.columnHeader18.Width = 180;
+            this.columnHeader18.Width = 200;
             // 
             // columnHeader19
             // 
             this.columnHeader19.Text = "Luogo";
-            this.columnHeader19.Width = 180;
-            // 
-            // columnHeader20
-            // 
-            this.columnHeader20.Text = "Ultima Modifica";
-            this.columnHeader20.Width = 120;
+            this.columnHeader19.Width = 200;
             // 
             // pan_età
             // 
@@ -962,6 +953,7 @@ namespace Archivio_CRE
             this.pan_edit1.Controls.Add(this.label22);
             this.pan_edit1.Controls.Add(this.txt_edit_nom);
             this.pan_edit1.Controls.Add(this.label23);
+            this.pan_edit1.Enabled = false;
             this.pan_edit1.Location = new System.Drawing.Point(330, 75);
             this.pan_edit1.Name = "pan_edit1";
             this.pan_edit1.Size = new System.Drawing.Size(382, 500);
@@ -1450,8 +1442,7 @@ namespace Archivio_CRE
             this.list_luoghi.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader7,
             this.columnHeader8,
-            this.columnHeader11,
-            this.columnHeader12});
+            this.columnHeader11});
             this.list_luoghi.FullRowSelect = true;
             this.list_luoghi.HideSelection = false;
             this.list_luoghi.Location = new System.Drawing.Point(25, 310);
@@ -1465,22 +1456,17 @@ namespace Archivio_CRE
             // columnHeader7
             // 
             this.columnHeader7.Text = "Codice";
-            this.columnHeader7.Width = 110;
+            this.columnHeader7.Width = 130;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Nome";
-            this.columnHeader8.Width = 150;
+            this.columnHeader8.Width = 200;
             // 
             // columnHeader11
             // 
             this.columnHeader11.Text = "Tipo";
-            this.columnHeader11.Width = 80;
-            // 
-            // columnHeader12
-            // 
-            this.columnHeader12.Text = "Ultima Modifica";
-            this.columnHeader12.Width = 100;
+            this.columnHeader11.Width = 100;
             // 
             // pan_luo_ins
             // 
@@ -1696,8 +1682,7 @@ namespace Archivio_CRE
             // 
             this.list_attività.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader13,
-            this.columnHeader14,
-            this.columnHeader16});
+            this.columnHeader14});
             this.list_attività.FullRowSelect = true;
             this.list_attività.HideSelection = false;
             this.list_attività.Location = new System.Drawing.Point(25, 420);
@@ -1711,17 +1696,12 @@ namespace Archivio_CRE
             // columnHeader13
             // 
             this.columnHeader13.Text = "Codice";
-            this.columnHeader13.Width = 110;
+            this.columnHeader13.Width = 130;
             // 
             // columnHeader14
             // 
             this.columnHeader14.Text = "Nome";
-            this.columnHeader14.Width = 150;
-            // 
-            // columnHeader16
-            // 
-            this.columnHeader16.Text = "Ultima Modifica";
-            this.columnHeader16.Width = 120;
+            this.columnHeader14.Width = 200;
             // 
             // panel2
             // 
@@ -2049,7 +2029,6 @@ namespace Archivio_CRE
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader11;
-        private System.Windows.Forms.ColumnHeader columnHeader12;
         private System.Windows.Forms.Panel pan_luo_edit;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.ComboBox cmb_luo_edit;
@@ -2071,7 +2050,6 @@ namespace Archivio_CRE
         private System.Windows.Forms.ListView list_attività;
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ColumnHeader columnHeader14;
-        private System.Windows.Forms.ColumnHeader columnHeader16;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_att_ins;
         private System.Windows.Forms.Label label40;
@@ -2091,7 +2069,6 @@ namespace Archivio_CRE
         private System.Windows.Forms.ColumnHeader columnHeader17;
         private System.Windows.Forms.ColumnHeader columnHeader18;
         private System.Windows.Forms.ColumnHeader columnHeader19;
-        private System.Windows.Forms.ColumnHeader columnHeader20;
         private System.Windows.Forms.Label lbl_time;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
