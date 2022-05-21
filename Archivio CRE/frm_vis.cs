@@ -23,6 +23,10 @@ namespace Archivio_CRE
         {
             Visualizza();
             frm_login.Aborted = true;
+
+            cmb_filter_età.SelectedIndex = 10;
+            cmb_filter_luogo.SelectedIndex = 0;
+            cmb_filter_tipo.SelectedIndex = 0;
         }
 
         private void Visualizza()

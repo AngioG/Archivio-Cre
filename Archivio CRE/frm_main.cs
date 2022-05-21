@@ -552,6 +552,24 @@ namespace Archivio_CRE
             pan_edit.Enabled = false;
             pan_edit1.Enabled = false;
         }
+
+        private void list_edit_classi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btn_più_edit.Enabled = false;
+            btn_meno_edit.Enabled = false;
+
+            if (list_edit_classi.SelectedIndices.Count != 1)
+            {
+                btn_rm_edit.Enabled = false;
+                txt_selected_edit.Text = "";
+
+                return;
+            }
+
+            txt_selected_edit.Text = list_edit_classi.SelectedItems[0].SubItems[1].Text;
+
+            btn_rm_edit.Enabled = true;
+        }
         #endregion
         #region Tab 4 Luoghi
         private void btn_luogo_ins_Click(object sender, EventArgs e)
@@ -708,7 +726,7 @@ namespace Archivio_CRE
             foreach (ListViewItem i in list.Items)
                 eleInseriti.Add(i.SubItems[0].Text);
 
-            if (cmb_ins_classe.Text == "Elementari")
+            if (cmb.Text == "Elementari")
             {
                 if (!eleInseriti.Contains("Prima Elementare"))
                     list.Items.Add("Prima Elementare");
@@ -721,7 +739,7 @@ namespace Archivio_CRE
                 if (!eleInseriti.Contains("Quinta Elementare"))
                     list.Items.Add("Quinta Elementare");
             }
-            else if (cmb_ins_classe.Text == "Medie")
+            else if (cmb.Text == "Medie")
             {
                 if (!eleInseriti.Contains("Prima Media"))
                     list.Items.Add("Prima Media");
@@ -730,7 +748,7 @@ namespace Archivio_CRE
                 if (!eleInseriti.Contains("Terza Media"))
                     list.Items.Add("Terza Media");
             }
-            else if (cmb_ins_classe.Text == "Tutti")
+            else if (cmb.Text == "Tutti")
             {
                 if (!eleInseriti.Contains("Prima Elementare"))
                     list.Items.Add("Prima Elementare");

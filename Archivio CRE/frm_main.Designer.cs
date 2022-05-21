@@ -913,6 +913,7 @@ namespace Archivio_CRE
             // columnHeader10
             // 
             this.columnHeader10.Text = "Codice";
+            this.columnHeader10.Width = 95;
             // 
             // columnHeader9
             // 
@@ -1270,6 +1271,7 @@ namespace Archivio_CRE
             this.list_edit_classi.TabIndex = 20;
             this.list_edit_classi.UseCompatibleStateImageBehavior = false;
             this.list_edit_classi.View = System.Windows.Forms.View.Details;
+            this.list_edit_classi.SelectedIndexChanged += new System.EventHandler(this.list_edit_classi_SelectedIndexChanged);
             // 
             // columnHeader3
             // 
