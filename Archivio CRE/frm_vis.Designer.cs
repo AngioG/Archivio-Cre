@@ -195,7 +195,7 @@ namespace Archivio_CRE
             // txt_src
             // 
             this.txt_src.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.txt_src.Location = new System.Drawing.Point(18, 108);
+            this.txt_src.Location = new System.Drawing.Point(20, 108);
             this.txt_src.Name = "txt_src";
             this.txt_src.Size = new System.Drawing.Size(202, 30);
             this.txt_src.TabIndex = 16;
@@ -252,7 +252,7 @@ namespace Archivio_CRE
             // 
             this.pan_età.Controls.Add(this.cmb_filter_età);
             this.pan_età.Controls.Add(this.label16);
-            this.pan_età.Location = new System.Drawing.Point(11, 511);
+            this.pan_età.Location = new System.Drawing.Point(20, 402);
             this.pan_età.Name = "pan_età";
             this.pan_età.Size = new System.Drawing.Size(200, 66);
             this.pan_età.TabIndex = 5;
@@ -293,7 +293,7 @@ namespace Archivio_CRE
             // 
             this.pan_luogo.Controls.Add(this.cmb_filter_luogo);
             this.pan_luogo.Controls.Add(this.label15);
-            this.pan_luogo.Location = new System.Drawing.Point(11, 416);
+            this.pan_luogo.Location = new System.Drawing.Point(20, 307);
             this.pan_luogo.Name = "pan_luogo";
             this.pan_luogo.Size = new System.Drawing.Size(200, 66);
             this.pan_luogo.TabIndex = 4;
@@ -325,7 +325,7 @@ namespace Archivio_CRE
             // label14
             // 
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label14.Location = new System.Drawing.Point(6, 292);
+            this.label14.Location = new System.Drawing.Point(15, 180);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(200, 26);
             this.label14.TabIndex = 3;
@@ -335,7 +335,7 @@ namespace Archivio_CRE
             // 
             this.pan_tipo.Controls.Add(this.cmb_filter_tipo);
             this.pan_tipo.Controls.Add(this.label13);
-            this.pan_tipo.Location = new System.Drawing.Point(11, 321);
+            this.pan_tipo.Location = new System.Drawing.Point(20, 212);
             this.pan_tipo.Name = "pan_tipo";
             this.pan_tipo.Size = new System.Drawing.Size(200, 65);
             this.pan_tipo.TabIndex = 2;
@@ -347,7 +347,7 @@ namespace Archivio_CRE
             this.cmb_filter_tipo.FormattingEnabled = true;
             this.cmb_filter_tipo.Items.AddRange(new object[] {
             "Tutti"});
-            this.cmb_filter_tipo.Location = new System.Drawing.Point(0, 30);
+            this.cmb_filter_tipo.Location = new System.Drawing.Point(0, 29);
             this.cmb_filter_tipo.Name = "cmb_filter_tipo";
             this.cmb_filter_tipo.Size = new System.Drawing.Size(200, 28);
             this.cmb_filter_tipo.TabIndex = 1;
@@ -444,6 +444,7 @@ namespace Archivio_CRE
             this.list_attività.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader13,
             this.columnHeader14});
+            this.list_attività.FullRowSelect = true;
             this.list_attività.HideSelection = false;
             this.list_attività.Location = new System.Drawing.Point(635, 125);
             this.list_attività.Name = "list_attività";
@@ -469,6 +470,7 @@ namespace Archivio_CRE
             this.columnHeader7,
             this.columnHeader8,
             this.columnHeader11});
+            this.list_luoghi.FullRowSelect = true;
             this.list_luoghi.HideSelection = false;
             this.list_luoghi.Location = new System.Drawing.Point(25, 125);
             this.list_luoghi.Name = "list_luoghi";
@@ -554,10 +556,8 @@ namespace Archivio_CRE
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListView list_attività;
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ColumnHeader columnHeader14;
-        private System.Windows.Forms.ListView list_luoghi;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader11;
@@ -570,5 +570,7 @@ namespace Archivio_CRE
         private System.Windows.Forms.Button btn_aggiorna;
         private System.Windows.Forms.TextBox txt_src;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListView list_attività;
+        private System.Windows.Forms.ListView list_luoghi;
     }
 }

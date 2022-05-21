@@ -11,14 +11,12 @@ namespace Archivio_CRE
         private static List<string> eleNomi = new List<string>();
         private static List<string> codes = new List<string>();
         #endregion
-
         #region attributes
         private string code;
         private string nome;
         private bool aperto;
         private bool disposedValue;
         #endregion
-
         #region properties
         public string Code
         {
@@ -81,7 +79,6 @@ namespace Archivio_CRE
         }
 
         #endregion
-
         #region constructors
         public Luogo() : base()
         {
@@ -112,7 +109,7 @@ namespace Archivio_CRE
 
         }
         #endregion
-
+        #region Methods
         public override string ToString()
         {
             return Nome;
@@ -146,5 +143,6 @@ namespace Archivio_CRE
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
+        #endregion
     }
 }

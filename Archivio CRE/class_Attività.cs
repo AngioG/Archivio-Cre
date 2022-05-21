@@ -11,7 +11,6 @@ namespace Archivio_CRE
         private static int nToday;
         private static List<string> codes = new List<string>();
         #endregion
-
         #region attributes
         private string code;
         private string nome;
@@ -22,7 +21,6 @@ namespace Archivio_CRE
         private List<(int, string)> materiale = new List<(int, string)>();
         private bool disposedValue;
         #endregion
-
         #region properties
 
         [DefaultValue("Codice")]
@@ -111,7 +109,6 @@ namespace Archivio_CRE
             }
         }
         #endregion
-
         #region constructors
         public Attività()
         {
@@ -139,7 +136,7 @@ namespace Archivio_CRE
 
         }
         #endregion
-
+        #region Methods
         public override string ToString()
         {
             return Nome;
@@ -172,5 +169,6 @@ namespace Archivio_CRE
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
+        #endregion
     }
 }

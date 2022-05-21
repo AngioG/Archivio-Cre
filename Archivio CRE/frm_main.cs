@@ -532,9 +532,11 @@ namespace Archivio_CRE
                 MessageBox.Show(ex.Message, "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            list_src.Items.Clear();
             foreach (var a in Program.GlobalConfig.EleAttivit)
                 list_src.Items.Add(new ListViewItem(new string[] { a.Code, a.Nome }));
 
+            Clear_edit(sender, e);
             Program.timeLeft = 600000;
         }
         private void Clear_edit(object sender, EventArgs e)
@@ -687,7 +689,7 @@ namespace Archivio_CRE
         {
             txt_att_code.Text = "";
             txt_att_ednom.Text = "";
-            txt_att_eddes.Text = "Aperto";
+            txt_att_eddes.Text = "";
 
             pan_att_edit.Enabled = false;
 
@@ -858,6 +860,18 @@ namespace Archivio_CRE
         {
             Program.Ripeti = true;
             this.Close();
+        }
+
+        private void list_vis_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (list_vis.SelectedIndices.Count <= 0 || list_vis.SelectedIndices[0] == -1)
+                return;
+
+            var cod = list_vis.SelectedItems[0].SubItems[0].Text;
+            var att = Program.GlobalConfig.EleAttivit.Where(a => a.Code == cod).FirstOrDefault();
+            if (att == null) return;
+            //this.TopLevel = false;
+            (new frm_vis_att(att) { Owner = this }).Show();
         }
     }
 }

@@ -92,7 +92,7 @@ namespace Archivio_CRE
             // label14
             // 
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label14.Location = new System.Drawing.Point(3, 198);
+            this.label14.Location = new System.Drawing.Point(3, 180);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(200, 26);
             this.label14.TabIndex = 8;
@@ -115,7 +115,7 @@ namespace Archivio_CRE
             // 
             this.pan_età.Controls.Add(this.cmb_filter_età);
             this.pan_età.Controls.Add(this.label16);
-            this.pan_età.Location = new System.Drawing.Point(8, 441);
+            this.pan_età.Location = new System.Drawing.Point(8, 399);
             this.pan_età.Name = "pan_età";
             this.pan_età.Size = new System.Drawing.Size(200, 66);
             this.pan_età.TabIndex = 10;
@@ -155,7 +155,7 @@ namespace Archivio_CRE
             // 
             this.pan_luogo.Controls.Add(this.cmb_filter_luogo);
             this.pan_luogo.Controls.Add(this.label15);
-            this.pan_luogo.Location = new System.Drawing.Point(8, 346);
+            this.pan_luogo.Location = new System.Drawing.Point(8, 304);
             this.pan_luogo.Name = "pan_luogo";
             this.pan_luogo.Size = new System.Drawing.Size(200, 66);
             this.pan_luogo.TabIndex = 9;
@@ -189,7 +189,7 @@ namespace Archivio_CRE
             // 
             this.pan_tipo.Controls.Add(this.cmb_filter_tipo);
             this.pan_tipo.Controls.Add(this.label13);
-            this.pan_tipo.Location = new System.Drawing.Point(8, 251);
+            this.pan_tipo.Location = new System.Drawing.Point(8, 209);
             this.pan_tipo.Name = "pan_tipo";
             this.pan_tipo.Size = new System.Drawing.Size(200, 65);
             this.pan_tipo.TabIndex = 7;

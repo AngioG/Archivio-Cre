@@ -227,7 +227,7 @@ namespace Archivio_CRE
             this.panel_buttons.Controls.Add(this.btn_goto_ins);
             this.panel_buttons.Location = new System.Drawing.Point(0, 95);
             this.panel_buttons.Name = "panel_buttons";
-            this.panel_buttons.Size = new System.Drawing.Size(1120, 32);
+            this.panel_buttons.Size = new System.Drawing.Size(1120, 50);
             this.panel_buttons.TabIndex = 1;
             // 
             // btn_close
@@ -236,7 +236,7 @@ namespace Archivio_CRE
             this.btn_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.btn_close.Location = new System.Drawing.Point(960, 0);
             this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(160, 32);
+            this.btn_close.Size = new System.Drawing.Size(160, 50);
             this.btn_close.TabIndex = 6;
             this.btn_close.Text = "CHIUDI";
             this.btn_close.UseVisualStyleBackColor = true;
@@ -248,7 +248,7 @@ namespace Archivio_CRE
             this.btn_logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.btn_logout.Location = new System.Drawing.Point(800, 0);
             this.btn_logout.Name = "btn_logout";
-            this.btn_logout.Size = new System.Drawing.Size(160, 32);
+            this.btn_logout.Size = new System.Drawing.Size(160, 50);
             this.btn_logout.TabIndex = 5;
             this.btn_logout.Text = "LOGOUT";
             this.btn_logout.UseVisualStyleBackColor = true;
@@ -260,7 +260,7 @@ namespace Archivio_CRE
             this.btn_goto_attività.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.btn_goto_attività.Location = new System.Drawing.Point(640, 0);
             this.btn_goto_attività.Name = "btn_goto_attività";
-            this.btn_goto_attività.Size = new System.Drawing.Size(160, 32);
+            this.btn_goto_attività.Size = new System.Drawing.Size(160, 50);
             this.btn_goto_attività.TabIndex = 4;
             this.btn_goto_attività.Text = "ATTIVITÀ";
             this.btn_goto_attività.UseVisualStyleBackColor = true;
@@ -272,7 +272,7 @@ namespace Archivio_CRE
             this.btn_goto_luoghi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.btn_goto_luoghi.Location = new System.Drawing.Point(480, 0);
             this.btn_goto_luoghi.Name = "btn_goto_luoghi";
-            this.btn_goto_luoghi.Size = new System.Drawing.Size(160, 32);
+            this.btn_goto_luoghi.Size = new System.Drawing.Size(160, 50);
             this.btn_goto_luoghi.TabIndex = 3;
             this.btn_goto_luoghi.Text = "LUOGHI";
             this.btn_goto_luoghi.UseVisualStyleBackColor = true;
@@ -284,7 +284,7 @@ namespace Archivio_CRE
             this.btn_goto_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.btn_goto_edit.Location = new System.Drawing.Point(320, 0);
             this.btn_goto_edit.Name = "btn_goto_edit";
-            this.btn_goto_edit.Size = new System.Drawing.Size(160, 32);
+            this.btn_goto_edit.Size = new System.Drawing.Size(160, 50);
             this.btn_goto_edit.TabIndex = 2;
             this.btn_goto_edit.Text = "MODIFICA";
             this.btn_goto_edit.UseVisualStyleBackColor = true;
@@ -296,7 +296,7 @@ namespace Archivio_CRE
             this.bn_goto_vis.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.bn_goto_vis.Location = new System.Drawing.Point(160, 0);
             this.bn_goto_vis.Name = "bn_goto_vis";
-            this.bn_goto_vis.Size = new System.Drawing.Size(160, 32);
+            this.bn_goto_vis.Size = new System.Drawing.Size(160, 50);
             this.bn_goto_vis.TabIndex = 1;
             this.bn_goto_vis.Text = "ARCHIVIO";
             this.bn_goto_vis.UseVisualStyleBackColor = true;
@@ -308,7 +308,7 @@ namespace Archivio_CRE
             this.btn_goto_ins.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.btn_goto_ins.Location = new System.Drawing.Point(0, 0);
             this.btn_goto_ins.Name = "btn_goto_ins";
-            this.btn_goto_ins.Size = new System.Drawing.Size(160, 32);
+            this.btn_goto_ins.Size = new System.Drawing.Size(160, 50);
             this.btn_goto_ins.TabIndex = 0;
             this.btn_goto_ins.Text = "INSERIMENTO";
             this.btn_goto_ins.UseVisualStyleBackColor = true;
@@ -729,6 +729,7 @@ namespace Archivio_CRE
             this.list_vis.TabIndex = 6;
             this.list_vis.UseCompatibleStateImageBehavior = false;
             this.list_vis.View = System.Windows.Forms.View.Details;
+            this.list_vis.SelectedIndexChanged += new System.EventHandler(this.list_vis_SelectedIndexChanged);
             // 
             // columnHeader15
             // 
